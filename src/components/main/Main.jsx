@@ -1,42 +1,64 @@
 import styled from "styled-components";
+import thumbnail from "../../assets/강해린2.jpeg";
 
-const StyledMain = styled.main`
+const MainSection = styled.main`
   display: flex;
   justify-content: center;
   height: 100%;
 `;
 
-const StyledSection = styled.section`
+const ReactSecion = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  max-width: 768px;
+  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+  max-width: 1040px;
   width: 100%;
-  justify-content: space-between;
+  gap: 40px;
 `;
 
-const StyledDiv = styled.div`
-  border: 1px solid #000000;
+const Card = styled.article`
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  gap: 20px;
+`;
+
+const ImgDiv = styled.div`
+  border-radius: 16px;
+  flex: 1;
+  overflow: hidden;
+  > img {
+    width: 100%;
+  }
+`;
+
+const SummaryDiv = styled.div`
+  flex: 1;
 `;
 
 const Main = () => {
   return (
-    <StyledMain>
-      <StyledSection>
-        <StyledDiv>
-          <div>썸네일</div>
-          <div>설명</div>
-        </StyledDiv>
-        <StyledDiv>
-          <div>썸네일</div>
-          <div>설명</div>
-        </StyledDiv>
-        <StyledDiv>
-          <div>썸네일</div>
-          <div>설명</div>
-        </StyledDiv>
-      </StyledSection>
-    </StyledMain>
+    <MainSection>
+      <ReactSecion>
+        <Card>
+          <ImgDiv>
+            <img src={thumbnail} />
+          </ImgDiv>
+          <SummaryDiv>설명</SummaryDiv>
+        </Card>
+        <Card>
+          <ImgDiv>
+            <img />
+          </ImgDiv>
+          <SummaryDiv>설명</SummaryDiv>
+        </Card>
+        <Card>
+          <ImgDiv>
+            <img />
+          </ImgDiv>
+          <SummaryDiv>설명</SummaryDiv>
+        </Card>
+      </ReactSecion>
+    </MainSection>
   );
 };
 
