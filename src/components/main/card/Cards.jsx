@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Card from "./Card";
 
 import CONTENT_DATAS from "../../../data";
-import { useState } from "react";
 
 const StyledCards = styled.section`
   display: grid;
