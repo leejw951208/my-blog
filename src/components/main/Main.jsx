@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Cards from "./Cards";
+import Cards from "./card/Cards";
 
 const StyledMain = styled.main`
   display: flex;
