@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 const ImgDiv = styled.div`
   border-radius: 16px;
-  flex: 1;
   overflow: hidden;
   transition: 0.3s;
+  height: 200px;
   > img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;
 
@@ -18,12 +20,12 @@ const StyledCard = styled.article`
   &:hover {
     ${ImgDiv} {
       transform: translateY(-15px);
+      box-shadow: 0 3px 20px rgba(0, 0, 0, 0.23);
     }
   }
 `;
 
 const SummaryDiv = styled.div`
-  flex: 1;
   > h2 {
     font-size: 24px;
   }
