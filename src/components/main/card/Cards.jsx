@@ -2,8 +2,7 @@ import styled from "styled-components";
 import Card from "./Card";
 
 import CONTENT_DATAS from "../../../data";
-import { useState } from "react";
-import Detail from "../detail/detail";
+import Detail from "../detail/Detail";
 import { useDispatch, useSelector } from "react-redux";
 import { detailAction } from "../../../store/detail-slice";
 import Portal from "../../portal/Portal";
