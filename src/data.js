@@ -1,4 +1,4 @@
-import calculator from "./assets/calculator.jpg";
+import calculator from "./assets/calculator.png";
 import notesApp from "./assets/notes-app.png";
 
 const CONTENT_DATAS = [

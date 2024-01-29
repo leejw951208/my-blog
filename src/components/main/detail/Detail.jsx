@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { detailAction } from "../../../store/detail-slice";
+import vercel from "../../../assets/vercel.png";
+import github from "../../../assets/github.svg";
 
 const Container = styled.div`
   display: ${(props) => (props.$open ? "block" : "none")};
@@ -71,6 +73,7 @@ const Title = styled.div`
 const Skills = styled.div`
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
   > span {
     background-color: #f1f3f5;
     border-radius: 15px;
@@ -78,6 +81,28 @@ const Skills = styled.div`
     color: #6a7585;
     font-weight: 600;
     font-size: 16px;
+  }
+`;
+
+const Description = styled.div`
+  padding: 5px;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  font-weight: 600;
+  > p {
+    word-break: keep-all;
+    line-height: 23px;
+    color: #758192;
+  }
+`;
+
+const URL = styled.div`
+  display: flex;
+  gap: 20px;
+  > a {
+    > img {
+      height: 40px;
+    }
   }
 `;
 
@@ -107,6 +132,17 @@ const Detail = ({ open, data }) => {
               <span key={skill}>{skill}</span>
             ))}
           </Skills>
+          <Description>
+            <p>{data.description}</p>
+          </Description>
+          <URL $image={vercel}>
+            <a href={data.url} target="_blank">
+              <img src={vercel} alt="vercel" />
+            </a>
+            <a href={data.github} target="_blank">
+              <img src={github} alt="github" />
+            </a>
+          </URL>
         </Body>
       </Wrapper>
     </Container>
