@@ -4,6 +4,9 @@ import Card from "./Card";
 import CONTENT_DATAS from "../../../data";
 import { useState } from "react";
 import Detail from "../detail/detail";
+import { useDispatch, useSelector } from "react-redux";
+import { detailAction } from "../../../store/detail-slice";
+import Portal from "../../portal/Portal";
 
 const StyledCards = styled.section`
   display: grid;
@@ -19,30 +22,32 @@ const StyledCards = styled.section`
 `;
 
 const Cards = () => {
-  const [detail, setDetail] = useState(false);
+  const dispatch = useDispatch();
+  const { is, data } = useSelector((state) => state.detail);
 
-  const handleClick = () => {
-    setDetail(true);
+  const handleClick = (id) => {
+    dispatch(detailAction.setDetail({ is: true, id: id }));
   };
 
   return (
     <>
-      {detail ? (
-        <Detail />
-      ) : (
-        <StyledCards>
-          {CONTENT_DATAS.map((content) => (
-            <Card
-              key={content.title}
-              imgSrc={content.thumbnail}
-              title={content.title}
-              description={content.description}
-              period={content.period}
-              onClick={handleClick}
-            />
-          ))}
-        </StyledCards>
+      {is && (
+        <Portal>
+          <Detail open={is} data={data} />
+        </Portal>
       )}
+      <StyledCards>
+        {CONTENT_DATAS.map((content) => (
+          <Card
+            key={content.title}
+            imgSrc={content.thumbnail}
+            title={content.title}
+            description={content.description}
+            period={content.period}
+            onClick={() => handleClick(content.id)}
+          />
+        ))}
+      </StyledCards>
     </>
   );
 };
